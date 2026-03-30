@@ -171,20 +171,3 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 }
-
-# resource "local_file" "ansible_inventory" {
-#   content = templatefile("${path.module}/inventory.tpl", {
-#     master_ip = azurerm_public_ip.pip["master"].ip_address
-#     worker_ip = azurerm_public_ip.pip["worker"].ip_address
-#     key_path  = "~/.ssh/id_rsa"   
-#   })
-#   filename = "${path.root}/ansible/hosts.ini"   
-# }
-
-# resource "null_resource" "ansible_provisioner" {
-
-#   depends_on = [
-#     azurerm_linux_virtual_machine.vm,
-#     local_file.ansible_inventory
-#   ]
-# }
